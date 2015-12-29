@@ -1,0 +1,87 @@
+<div class="row" ng-controller="ContactsCntr">
+    
+    
+    <form class="row" ng-show="varAddContact" class="addForm">
+        <div class="large-6 columns">
+            <label>Name </label>
+            <input type="text" ng-model="name" required >
+        </div>
+        <div class="large-6 columns">
+            <label>Gender </label>
+            <input type="radio" ng-model="gender" value="male"> Male
+            <input type="radio" ng-model="gender" value="female">Female
+        </div>
+        <div class="large-6 columns">
+            <div>&nbsp;</div>
+            <input type="hidden">
+        </div>
+        <div class="large-6 columns">
+            <label>Work Phone </label>
+            <input type="tel" ng-model="workPhone" >
+        </div>
+        <div class="large-6 columns">
+            <label>Cell Phone </label>
+            <input type="tel" ng-model="cellPhone" >
+        </div>
+        <div class="large-6 columns">
+            <label>Office Phone </label>
+            <input type="tel" ng-model="officePhone">
+        </div>
+        <div class="large-6 columns">
+            <label>Skype </label>
+            <input type="text" ng-model="skype">
+        </div>
+        <div class="large-6 columns">
+            <label>Email </label>
+            <input type="email" ng-model="email">
+        </div>
+        <div class="large-6 columns">
+            <label>Social ID </label>
+            <input type="number" ng-model="social">
+        </div>
+        <div class="large-6 columns">
+            <label>Company </label>
+            <input type="text" ng-model="company">
+        </div>
+        <div class="large-6 columns">
+            <label>Website </label>
+            <input type="url" ng-model="website">
+        </div>
+        
+        <div class="medium-offset-10">
+            <input type="submit" class="secondary expand button">
+        </div>
+        
+    </form>
+    
+    
+    <div class="row">
+    <div class="large-10 small-12 columns">
+        <table>
+            <thead>
+            <tr>
+                <th width="200px">Name</th>
+                <th width="200px">Company</th>
+                <th width="25%">Email</th>
+                <th width="25%">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="contact in contacts">
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.company}}</td>
+                    <th>{{contact.email}}</th>
+                    <th>
+                        <a ng-click="editContact(contact)">Edit</a> | 
+                        <a ng-click="removeContact(contact)">Delete</a>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="large-2 small-12 columns">
+        <a class="hollow button" ng-click="addContact()">+</a>
+    </div>
+    </div>
+    
+</div>
