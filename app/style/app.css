@@ -28,3 +28,8 @@
   content: "";
   padding: 0;
 }
+
+.addContact{
+    max-height:100px;
+    transition:max-height ease 5s;
+}

@@ -1,61 +1,166 @@
 <div class="row" ng-controller="ContactsCntr">
     
+    <p class="alert-box" ng-show="{{msg}}">{{msg}}</p>
     
-    <form class="row" ng-show="varAddContact" class="addForm">
+    <!--Add new Contact-->
+    <form ng-submit="editContactSubmit()" class="row" ng-show="varEditContact">
         <div class="large-6 columns">
             <label>Name </label>
-            <input type="text" ng-model="name" required >
+            <input type="text" ng-model="name" placeholder="Name i.e. John Doe" required >
         </div>
         <div class="large-6 columns">
-            <label>Gender </label>
-            <input type="radio" ng-model="gender" value="male"> Male
-            <input type="radio" ng-model="gender" value="female">Female
-        </div>
-        <div class="large-6 columns">
-            <div>&nbsp;</div>
-            <input type="hidden">
+            <label>Father Name </label>
+            <input type="text" ng-model="fname" placeholder="Father Name i.e. Mark Doe" >
         </div>
         <div class="large-6 columns">
             <label>Work Phone </label>
-            <input type="tel" ng-model="workPhone" >
+            <input type="tel" ng-model="work" placeholder="Work Phone Number i.e. 802 102 1212" >
         </div>
         <div class="large-6 columns">
             <label>Cell Phone </label>
-            <input type="tel" ng-model="cellPhone" >
+            <input type="tel" ng-model="cell" placeholder="Cell Phone Number i.e. 310 112 1441" >
         </div>
         <div class="large-6 columns">
-            <label>Office Phone </label>
-            <input type="tel" ng-model="officePhone">
+            <label>Home Phone </label>
+            <input type="tel" ng-model="home" placeholder="Home Phone Number i.e. 111 251 112">
         </div>
         <div class="large-6 columns">
             <label>Skype </label>
-            <input type="text" ng-model="skype">
+            <input type="text" ng-model="skype" placeholder="Skype i.e. skee.skype">
         </div>
         <div class="large-6 columns">
             <label>Email </label>
-            <input type="email" ng-model="email">
+            <input type="email" ng-model="email" required placeholder="Email address i.e. somewhere@nowhere.com">
         </div>
         <div class="large-6 columns">
             <label>Social ID </label>
-            <input type="number" ng-model="social">
+            <input type="number" ng-model="social" placeholder="Social ID i.e. 111 222 2242">
         </div>
         <div class="large-6 columns">
             <label>Company </label>
-            <input type="text" ng-model="company">
+            <input type="text" ng-model="company" required placeholder="company i.e. ABS Comp">
         </div>
         <div class="large-6 columns">
             <label>Website </label>
-            <input type="url" ng-model="website">
+            <input type="url" ng-model="website" placeholder="website url i.e. http://somewhere.aoo">
+        </div>
+        <div class="large-6 columns">
+            <label>Street Address </label>
+            <input type="text" ng-model="street" placeholder="Street Address i.e. House Street Block">
+        </div>
+        <div class="large-6 columns">
+            <label>City </label>
+            <input type="text" ng-model="city" placeholder="city i.e. Kansas">
+        </div>
+        <div class="large-6 columns">
+            <label>State </label>
+            <input type="text" ng-model="state" placeholder="state i.e. CA">
+        </div>
+        <div class="large-6 columns">
+            <label>Zip </label>
+            <input type="number" ng-model="zip" placeholder="zip code i.e. 75790">
         </div>
         
-        <div class="medium-offset-10">
-            <input type="submit" class="secondary expand button">
-        </div>
         
+        <div class="medium-offset-8">
+            <input class="button secondary" type="submit" value="Update Contact">
+            <a ng-click="hide()" class="button">-</a>
+        </div>
     </form>
+    
+    <form ng-submit="addContactSubmit()" class="row" ng-show="varAddContact">
+        <div class="large-6 columns">
+            <label>Name </label>
+            <input type="text" ng-model="name" placeholder="Name i.e. John Doe" required >
+        </div>
+        <div class="large-6 columns">
+            <label>Father Name </label>
+            <input type="text" ng-model="fname" placeholder="Father Name i.e. Mark Doe" >
+        </div>
+        <div class="large-6 columns">
+            <label>Work Phone </label>
+            <input type="tel" ng-model="workPhone" placeholder="Work Phone Number i.e. 802 102 1212" >
+        </div>
+        <div class="large-6 columns">
+            <label>Cell Phone </label>
+            <input type="tel" ng-model="cellPhone" placeholder="Cell Phone Number i.e. 310 112 1441" >
+        </div>
+        <div class="large-6 columns">
+            <label>Home Phone </label>
+            <input type="tel" ng-model="homePhone" placeholder="Home Phone Number i.e. 111 251 112">
+        </div>
+        <div class="large-6 columns">
+            <label>Skype </label>
+            <input type="text" ng-model="skype" placeholder="Skype i.e. skee.skype">
+        </div>
+        <div class="large-6 columns">
+            <label>Email </label>
+            <input type="email" ng-model="email" required placeholder="Email address i.e. somewhere@nowhere.com">
+        </div>
+        <div class="large-6 columns">
+            <label>Social ID </label>
+            <input type="number" ng-model="social" placeholder="Social ID i.e. 111 222 2242">
+        </div>
+        <div class="large-6 columns">
+            <label>Company </label>
+            <input type="text" ng-model="company" required placeholder="company i.e. ABS Comp">
+        </div>
+        <div class="large-6 columns">
+            <label>Website </label>
+            <input type="url" ng-model="website" placeholder="website url i.e. http://somewhere.aoo">
+        </div>
+        <div class="large-6 columns">
+            <label>Street Address </label>
+            <input type="text" ng-model="streetAddress" placeholder="Street Address i.e. House Street Block">
+        </div>
+        <div class="large-6 columns">
+            <label>City </label>
+            <input type="text" ng-model="city" placeholder="city i.e. Kansas">
+        </div>
+        <div class="large-6 columns">
+            <label>State </label>
+            <input type="text" ng-model="state" placeholder="state i.e. CA">
+        </div>
+        <div class="large-6 columns">
+            <label>Zip </label>
+            <input type="number" ng-model="zip" placeholder="zip code i.e. 75790">
+        </div>
+        
+        
+        <div class="medium-offset-8">
+            <input class="button secondary" type="submit" value="Add Contact">
+            <a ng-click="hide()" class="button">-</a>
+        </div>
+    </form>
+    
+    <!--show contact-->
+    <div class="row" ng-show="varShowContact">
+        <div class="panel">
+            <h2 class="title">{{name}}</h2>
+            <ul class="block-list">
+                <li><strong>Father Name: </strong>  {{fname}}</li>
+                <li><strong>Company: </strong>       {{company}}</li>
+                <li><strong>Email: </strong>         {{email}}</li>
+                <li><strong>Website</strong>        {{website}}</li>
+                <li><strong>Social Security Number </strong> {{social}}</li>
+                <li><strong>Skype </strong> {{skype}}</li>
+            <h4>Phone</h4>
+                <li><strong>Work:</strong>          {{work}}</li>
+                <li><strong>Home:</strong>          {{home}}</li>
+                <li><strong>Cell:</strong>          {{cell}}</li>
+            <h4>Address</h4>
+                <li>{{street}}</li>
+                <li>{{city}}, {{state}} - {{zip}}</li>
+            </ul>
+        </div>
+        <a class="button secondary extend" ng-click="hide()">-</a>
+    </div>
     
     
     <div class="row">
+    
+    <span class="label">{{msg}}</span>
+    
     <div class="large-10 small-12 columns">
         <table>
             <thead>
@@ -68,7 +173,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="contact in contacts">
-                    <td>{{contact.name}}</td>
+                    <td ng-click="showContact(contact)"><a >{{contact.name}}</a></td>
                     <td>{{contact.company}}</td>
                     <th>{{contact.email}}</th>
                     <th>
@@ -80,7 +185,7 @@
         </table>
     </div>
     <div class="large-2 small-12 columns">
-        <a class="hollow button" ng-click="addContact()">+</a>
+        <a class="hollow button" ng-click="addContact()" ng-hide="varAddContact">+</a>
     </div>
     </div>
     

@@ -1,0 +1,17 @@
+.addContact{
+    max-height:100px;
+    transition:max-height ease 5s;
+}
+
+.panel{
+    background:f9f9f9;
+    border:#ccc;
+    border-radius:2px 7px;
+}
+
+
+ul,li{
+    list-style:none;
+    padding:10px;
+    line-height:1.2em;
+}
