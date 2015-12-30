@@ -142,6 +142,17 @@ angular.module('ess.contacts', ['ngRoute','firebase'])
          
         }
         
+        
+        $scope.removeContact = function(contact){
+            var conf= confirm("You want to delete data related to "+contact.name);
+            if(conf){
+                $scope.contacts.$remove(contact).then(function(ref){
+                    console.info(ref.key()+ "has been removed");
+                })
+                $scope.msg = contact.name +" has been deleted";
+            }
+        }
+        
         function clearFields(){
             $scope.name = null;
             $scope.fname = null;

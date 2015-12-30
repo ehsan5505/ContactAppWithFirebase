@@ -1,6 +1,9 @@
 <div class="row" ng-controller="ContactsCntr">
-    
-    <p class="alert-box" ng-show="{{msg}}">{{msg}}</p>
+    <div class="row">
+        <div class="columns small-12">
+            <p class="alert-box small-12 columns" ng-show="{{msg}}">{{msg}}</p>
+        </div>
+    </div>
     
     <!--Add new Contact-->
     <form ng-submit="editContactSubmit()" class="row" ng-show="varEditContact">
